@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novyra News • Fast, Verified Multi-Source News</title>
+  <meta name="description" content="Novyra News - Fast, verified, multi-source regional and global journalism with offline reading and audio listening.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="ticker-wrap">
+        <span class="ticker-badge">BREAKING</span>
+        <span class="ticker-text" id="breakingTickerText">Global AI Summit agrees on international transparency standards • Mars Rover detects subterranean water ice formations • Global green energy deployment sets 2026 record</span>
+      </div>
+      <div class="top-bar-right">
+        <span id="currentDate">Saturday, Sep 12, 2026</span>
+        <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light Mode">🌙</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <div class="logo-symbol">N</div>
+        <div>
+          <h1 class="logo-title">NOVYRA <span>NEWS</span></h1>
+          <p class="logo-tagline">Verified Multi-Source Journalism</p>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search news, topics, sources..." aria-label="Search">
+      </div>
+
+      <div class="header-actions">
+        <button id="bookmarksBtn" class="btn btn-outline">
+          ⭐ Bookmarks (<span id="savedCount">0</span>)
+        </button>
+        <button id="refreshBtn" class="btn btn-primary">
+          🔄 Refresh
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Location Tier Selector -->
+  <nav class="tier-nav">
+    <div class="container tier-container">
+      <span class="tier-label">EDITION:</span>
+      <div class="tier-buttons" id="tierFilters">
+        <button class="tier-btn active" data-tier="ALL">All Editions</button>
+        <button class="tier-btn" data-tier="GLOBAL">🌍 World</button>
+        <button class="tier-btn" data-tier="NATIONAL">🏛️ National</button>
+        <button class="tier-btn" data-tier="STATE">🗺️ State</button>
+        <button class="tier-btn" data-tier="LOCAL">📍 Local District</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Category Nav -->
+  <nav class="category-nav">
+    <div class="container category-container" id="categoryFilters">
+      <button class="cat-btn active" data-cat="All">All Stories</button>
+      <button class="cat-btn" data-cat="Breaking">⚡ Breaking</button>
+      <button class="cat-btn" data-cat="Technology">Technology</button>
+      <button class="cat-btn" data-cat="Business">Business & Markets</button>
+      <button class="cat-btn" data-cat="Politics">Politics</button>
+      <button class="cat-btn" data-cat="Science">Science</button>
+      <button class="cat-btn" data-cat="Sports">Sports</button>
+      <button class="cat-btn" data-cat="Health">Health</button>
+    </div>
+  </nav>
+
+  <!-- Audio Player Floating Bar (Shows when reading article) -->
+  <div id="audioBar" class="audio-player-bar hidden">
+    <div class="container audio-inner">
+      <div class="audio-info">
+        <span class="speaker-icon">🔊</span>
+        <div class="audio-text">
+          <div class="audio-label">Listening to article:</div>
+          <div id="audioTitle" class="audio-title">Article title...</div>
+        </div>
+      </div>
+      <div class="audio-controls">
+        <button id="audioPauseResumeBtn" class="audio-btn">⏸️ Pause</button>
+        <button id="audioStopBtn" class="audio-btn">⏹️ Stop</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container main-content">
+    <!-- Status Toast / Offline Banner -->
+    <div id="statusBanner" class="status-banner hidden">
+      <span id="statusIcon">⚡</span>
+      <span id="statusText">Cache updated. Ready for offline reading.</span>
+    </div>
+
+    <!-- Hero Featured Article -->
+    <section id="heroSection" class="hero-section">
+      <!-- Injected by JavaScript -->
+    </section>
+
+    <!-- Sponsored Partner Ad Banner -->
+    <div class="ad-banner">
+      <div class="ad-label">ADVERTISEMENT • GOOGLE ADMOB / PARTNER NETWORK</div>
+      <div class="ad-content">
+        <span class="ad-logo">⚡</span>
+        <div>
+          <h4>Discover Novyra Mobile for Android</h4>
+          <p>Get instant breaking alerts, offline reading mode, and multi-language translation.</p>
+        </div>
+        <button class="ad-cta-btn" onclick="alert('Novyra News Android App available for download in AI Studio!')">Install App</button>
+      </div>
+    </div>
+
+    <!-- Feed Section -->
+    <section class="feed-section">
+      <div class="feed-header">
+        <h2 id="feedSectionTitle">Top Stories</h2>
+        <span id="feedArticlesCount" class="badge">Loading...</span>
+      </div>
+
+      <div id="articlesGrid" class="articles-grid">
+        <!-- Injected by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Article Detail Modal -->
+  <div id="articleModal" class="modal hidden">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div id="modalBody" class="modal-body">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookmarks Drawer Modal -->
+  <div id="bookmarksModal" class="modal hidden">
+    <div class="modal-overlay" id="bookmarksOverlay"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>⭐ Saved Bookmarks</h3>
+        <button class="modal-close" id="bookmarksCloseBtn">&times;</button>
+      </div>
+      <div id="bookmarksList" class="bookmarks-list">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <div class="logo-area">
+          <div class="logo-symbol">N</div>
+          <h3 class="logo-title">NOVYRA <span>NEWS</span></h3>
+        </div>
+        <p>A fast, independent, and verified multi-source news platform designed for offline resilience and fast first load.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Editions</h4>
+        <ul>
+          <li><a href="#" onclick="filterByTier('GLOBAL'); return false;">Global / World</a></li>
+          <li><a href="#" onclick="filterByTier('NATIONAL'); return false;">National</a></li>
+          <li><a href="#" onclick="filterByTier('STATE'); return false;">State</a></li>
+          <li><a href="#" onclick="filterByTier('LOCAL'); return false;">Local District</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#" onclick="filterByCategory('Technology'); return false;">Technology</a></li>
+          <li><a href="#" onclick="filterByCategory('Business'); return false;">Business</a></li>
+          <li><a href="#" onclick="filterByCategory('Politics'); return false;">Politics</a></li>
+          <li><a href="#" onclick="filterByCategory('Science'); return false;">Science</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Features</h4>
+        <p>✓ Offline Local Storage</p>
+        <p>✓ Fast First Load Cache</p>
+        <p>✓ SpeechSynthesis Text-to-Speech</p>
+        <p>✓ Responsive Mobile & Desktop Layout</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Novyra News Network. All rights reserved. Made with Google AI Studio.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

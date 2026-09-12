@@ -1,0 +1,6 @@
+{
+  "name": "Novyra News",
+  "description": "Local to Global. One Place. Global AI-curated and personalized news platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

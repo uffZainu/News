@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center badge backing in safe zone (28 to 80) -->
+    <!-- Gold accent beacon at top right -->
+    <path
+        android:fillColor="#E6A117"
+        android:pathData="M70,30 A4,4 0 1,1 70,38 A4,4 0 1,1 70,30 Z" />
+
+    <!-- Left pillar of N -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,32 L40,32 L40,76 L32,76 Z" />
+
+    <!-- Diagonal stroke of N with editorial angle -->
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M38,32 L48,32 L70,68 L70,76 L60,76 L38,40 Z" />
+
+    <!-- Right pillar of N with news folded notch -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M68,32 L76,32 L76,76 L68,76 Z" />
+
+    <!-- Gold underline signal bar representing "One Place" / broadcast line -->
+    <path
+        android:fillColor="#E6A117"
+        android:pathData="M32,80 L76,80 L76,83 L32,83 Z" />
+
+    <!-- Breaking news beacon ring -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M70,34 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+</vector>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad-services-config>
+    <!-- Disable ad measurement attribution binding on devices without privacy sandbox services -->
+    <attribution allowAdPartnersToAccess="false"/>
+</ad-services-config>
